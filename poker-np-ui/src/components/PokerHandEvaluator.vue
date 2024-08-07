@@ -43,7 +43,7 @@
           if (response.data.result && response.data.result.length > 0) {
             this.result = `${response.data.result[0].hand}`;
           } else if (response.data.error && response.data.error.length > 0) {
-            this.error = response.data.error[0].msg;
+            this.error = response.data.error.map(e => e.msg).join(', ');
           } else {
             this.error = 'Unexpected response from server';
           }
